@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+    {% block content %}
+    <div class="container">
+        <h3>Assigned Machines</h3>
+        <table class="col-10 table table-inverse">
+          <thead>
+            <tr>
+              <th>Machine Name</th>
+              <th>IP Address</th>
+              <th>End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for machine in machines %}
+            <tr>
+              <td>{{ machine.name }}</td>
+              <td>{{ machine.ipaddress}}</td>
+              <td>{{ machine.enddate}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h3>New VM Request</h3>
+        <form action="{{ url_for('new_machine') }}" method="POST">
+            <div class="form-group">
+                <label for="requester" class="col-form-label">Requester</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" value="{{ requester }}" name="requester">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="OSselect" class="col-form-label">Select OS Version:</label>
+                <div class="col-10">
+                    <select class="form-control" id="OSselect">
+                      <option>Windows 7</option>
+                      <option>Windows 10 (coming soon)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="date-input" class="col-form-label">End Date:</label>
+                <div class="col-10">
+                    <input class="form-control" type="date" value="yyyy-mm-dd" name="date-input">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="purposeselect" class="col-form-label">Purpose:</label>
+                <div class="col-10">
+                    <select class="form-control" id="OSselect">
+                      <option>eTool Kit</option>
+                      <option>Claims App</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="col-2 btn btn-primary">Submit</button>
+        </form>
+    </div>
+    {% endblock %}

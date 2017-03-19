@@ -5,6 +5,7 @@
         <div class="border">
             <h3>Virtual Machines</h3>
             <p>Below are the list of assigned machines for you:</p>
+            <hr style = "color: black;">
             <table class="col-10 table table-hover">
               <thead>
                 <tr>
@@ -17,8 +18,8 @@
                 {% for machine in machines %}
                 <tr>
                   <td>{{ machine.name }}</td>
-                  <td>{{ machine.ipaddress}}</td>
-                  <td>{{ machine.enddate}}</td>
+                  <td>{{ machine.ipaddress }}</td>
+                  <td>{{ machine.enddate }}</td>
                 </tr>
                 {% endfor %}
               </tbody>
@@ -28,6 +29,8 @@
     <div class="container">
         <div class="border">
             <h3>New VM Request</h3>
+            <p>Fill up the below form for new Lab VM:</p>
+            <hr>
             <form action="{{ url_for('new_machine') }}" method="POST">
                 <div class="form-group">
                     <label for="requester" class="col-form-label">Requester</label>

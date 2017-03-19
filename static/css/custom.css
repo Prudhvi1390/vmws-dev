@@ -1,0 +1,22 @@
+body {
+    background-color: #EDEFF0;
+}
+
+.pad-top {
+    padding-top: 50px;
+}
+
+.pad-bottom {
+    padding-bottom: 70px;
+}
+
+.border {
+    padding: 20px;
+    border: solid 2px #5FCF80;
+    border-radius: 25px;
+}
+
+.jumbotron {
+    background-color: #3079AB;
+    color: white;
+}

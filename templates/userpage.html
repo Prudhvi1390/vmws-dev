@@ -2,60 +2,68 @@
 
     {% block content %}
     <div class="container">
-        <h3>Assigned Machines</h3>
-        <table class="col-10 table table-inverse">
-          <thead>
-            <tr>
-              <th>Machine Name</th>
-              <th>IP Address</th>
-              <th>End Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for machine in machines %}
-            <tr>
-              <td>{{ machine.name }}</td>
-              <td>{{ machine.ipaddress}}</td>
-              <td>{{ machine.enddate}}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+        <div class="border">
+            <h3>Virtual Machines</h3>
+            <p>Below are the list of assigned machines for you:</p>
+            <table class="col-10 table table-hover">
+              <thead>
+                <tr>
+                  <th>Machine Name</th>
+                  <th>IP Address</th>
+                  <th>End Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for machine in machines %}
+                <tr>
+                  <td>{{ machine.name }}</td>
+                  <td>{{ machine.ipaddress}}</td>
+                  <td>{{ machine.enddate}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
     </div>
     <div class="container">
-        <h3>New VM Request</h3>
-        <form action="{{ url_for('new_machine') }}" method="POST">
-            <div class="form-group">
-                <label for="requester" class="col-form-label">Requester</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" value="{{ requester }}" name="requester">
+        <div class="border">
+            <h3>New VM Request</h3>
+            <form action="{{ url_for('new_machine') }}" method="POST">
+                <div class="form-group">
+                    <label for="requester" class="col-form-label">Requester</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" value="{{ requester }}" name="requester" readonly>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="OSselect" class="col-form-label">Select OS Version:</label>
-                <div class="col-10">
-                    <select class="form-control" id="OSselect">
-                      <option>Windows 7</option>
-                      <option>Windows 10 (coming soon)</option>
-                    </select>
+                <div class="form-group">
+                    <label for="OSselect" class="col-form-label">Select OS Version:</label>
+                    <div class="col-10">
+                        <select class="form-control" id="OSselect">
+                          <option>Windows 7</option>
+                          <option>Windows 10 (coming soon)</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="date-input" class="col-form-label">End Date:</label>
-                <div class="col-10">
-                    <input class="form-control" type="date" value="yyyy-mm-dd" name="date-input">
+                <div class="form-group">
+                    <label for="date-input" class="col-form-label">End Date:</label>
+                    <div class="col-10">
+                        <input class="form-control" type="date" placeholder="yyyy-mm-dd" name="date-input">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="purposeselect" class="col-form-label">Purpose:</label>
-                <div class="col-10">
-                    <select class="form-control" id="OSselect">
-                      <option>ToolKit</option>
-                      <option>Another App</option>
-                    </select>
+                <div class="form-group">
+                    <label for="purposeselect" class="col-form-label">Purpose:</label>
+                    <div class="col-10">
+                        <select class="form-control" id="OSselect">
+                          <option>ToolKit</option>
+                          <option>Another App</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="col-2 btn btn-primary">Submit</button>
-        </form>
+                <button type="submit" class="col-lg-6 col-lg-offset-3 btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <p>Any Issues: </p>
     </div>
     {% endblock %}

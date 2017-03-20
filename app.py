@@ -23,6 +23,14 @@ def index():
 def adminpage():
     return render_template('adminpage.html')
 
+@app.route('/adminpage/available_vms')
+def available_vms():
+    return render_template('available_vms.html')
+
+@app.route('/adminpage/allocated_vms')
+def allocated_vms():
+    return render_template('allocated_vms.html')
+
 @app.route('/homepage', methods=['POST'])
 def user_page():
     LanID = request.form['LanID']

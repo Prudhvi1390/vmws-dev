@@ -23,16 +23,16 @@
   </head>
   <body>
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+      <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand">Logo</a>
         </div>
-      </div>
-      {% if requester in admins %}
+        {% if requester in admins %}
         <div>
-            <a href="{{url_for('adminpage')}}" class="btn btn-primary {{ disabled }}">Admin Page</a>
+            <a href="{{url_for('adminpage')}}" class="navbar-right btn btn-primary {{ disabled }}" style="margin-top:10px;">Admin Page</a>
         </div>
-    {% endif %}
+        {% endif %}
+      </div>
     </nav>
     <!-- Begin page content -->
     {% block content %}{% endblock %}

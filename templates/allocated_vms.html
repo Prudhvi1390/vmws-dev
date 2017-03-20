@@ -1,0 +1,26 @@
+{% extends "adminpage.html" %}   
+    {% block admincontent %}
+    <div class="container">
+        <div>
+            <table class="col-10 table table-hover">
+              <thead>
+                <tr>
+                  <th>Machine Name</th>
+                  <th>IP Address</th>
+                  <th>End Date</th>
+                  <th>Allocated To</th>
+                </tr>
+              </thead>
+              <!--<tbody>
+                {% for machine in machines %}
+                <tr>
+                  <td>{{ machine.name }}</td>
+                  <td>{{ machine.ipaddress }}</td>
+                  <td>{{ machine.enddate }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>-->
+            </table>
+        </div>
+    </div>
+    {% endblock %}

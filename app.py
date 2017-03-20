@@ -19,12 +19,17 @@ def teardown_request(exception):
 def index():
     return render_template('index.html')
 
+@app.route('/adminpage')
+def adminpage():
+    return render_template('adminpage.html')
+
 @app.route('/homepage', methods=['POST'])
 def user_page():
     LanID = request.form['LanID']
     users = g.db['a_users']
+    admins = ["keertipati", "b"]
     machines = g.db[LanID]
-    context = {'requester': LanID, 'machines': machines}
+    context = {'requester': LanID, 'machines': machines, 'admins': admins}
     if LanID in users:
         return render_template('userpage.html', **context)
     

@@ -28,6 +28,11 @@
           <a class="navbar-brand">Logo</a>
         </div>
       </div>
+      {% if requester in admins %}
+        <div>
+            <a href="{{url_for('adminpage')}}" class="btn btn-primary {{ disabled }}">Admin Page</a>
+        </div>
+    {% endif %}
     </nav>
     <!-- Begin page content -->
     {% block content %}{% endblock %}
